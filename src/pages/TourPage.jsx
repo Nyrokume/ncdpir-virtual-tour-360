@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { TOUR_DATA } from '../data/tourData';
+import { resolveTourAssets } from '../data/resolveTourAssets';
 import WelcomeScreen from '../components/WelcomeScreen';
 import PanoramaViewer from '../components/PanoramaViewer';
 import HUDHeader from '../components/HUDHeader';
@@ -8,7 +9,7 @@ import ExhibitModal from '../components/ExhibitModal';
 import '../App.css';
 
 export default function TourPage() {
-  const [tour] = useState(TOUR_DATA);
+  const [tour] = useState(() => resolveTourAssets(TOUR_DATA));
   const [started, setStarted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeExhibit, setActiveExhibit] = useState(null);
