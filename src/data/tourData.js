@@ -73,6 +73,19 @@ export const TOUR_DATA = {
           },
         },
         {
+          id: 'salon-figurines',
+          type: 'exhibit',
+          name: 'Фигурки',
+          yaw: '-98deg',
+          pitch: '-2deg',
+          exhibit: {
+            title: 'Традиционные удмуртские фигурки',
+            description:
+              'Фигурки в тематических удмуртских нарядах — миниатюрные скульптурные образы, отражающие традиции народного костюма и бытовой культуры.',
+            image: '/panoramas/salon.jpg',
+          },
+        },
+        {
           id: 'salon-cases-center',
           type: 'exhibit',
           name: 'Керамика',
