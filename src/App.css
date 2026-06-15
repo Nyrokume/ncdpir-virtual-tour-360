@@ -1,0 +1,119 @@
+/* ── Exhibit marker ── */
+.psv-hotspot--exhibit {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psv-hotspot--exhibit .psv-hotspot__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.psv-hotspot--exhibit .psv-hotspot__icon {
+  position: relative;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.psv-hotspot--exhibit:hover .psv-hotspot__ring {
+  border-color: #ff2a2a;
+  background: rgba(255, 42, 42, 0.15);
+  transform: scale(1.08);
+}
+
+.psv-hotspot--exhibit:hover .psv-hotspot__icon {
+  background: #ff2a2a;
+  transform: scale(1.2);
+}
+
+/* ── Nav marker ── */
+.psv-hotspot--nav {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psv-hotspot--nav .psv-hotspot__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.psv-hotspot--nav .psv-hotspot__arrow {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+}
+
+.psv-hotspot--nav:hover .psv-hotspot__ring {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+/* ── Labels ── */
+.psv-hotspot__label {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.psv-hotspot--exhibit:hover .psv-hotspot__label,
+.psv-hotspot--nav:hover .psv-hotspot__label {
+  opacity: 1;
+}
+
+.psv-hotspot--nav .psv-hotspot__label {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Noise texture for welcome screen */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}

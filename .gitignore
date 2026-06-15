@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.local
+.env
+.env.*
+
+# Исходники панорам в корне — в репозитории лежат копии в public/panoramas/
+IMG_*.jpg
