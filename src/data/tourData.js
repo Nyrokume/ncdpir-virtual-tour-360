@@ -6,6 +6,7 @@ export const TOUR_DATA = {
   tourSubtitle: 'Виртуальный тур 360°',
   siteUrl: 'https://decorudm.ru/',
   panoramas: [
+    // ── 1. Улица ──
     {
       id: 'street',
       order: 1,
@@ -32,13 +33,15 @@ export const TOUR_DATA = {
             title:
               'Национальный центр декоративно-прикладного искусства и ремёсел',
             description:
-              'Центр расположен в двухэтажном здании — купеческом доме Жерехова, построенном около 200 лет назад. С 1992 года здесь размещается Национальный центр декоративно-прикладного искусства и ремёсел. Здание признано памятником архитектуры местного значения.',
+              'Центр расположен в двухэтажном здании — купеческом доме Жерехова, построенном около 200 лет назад. С 1992 года здесь размещается Национальный центр декоративно-прикладного искусства и ремёсел.',
             image: '/images/museum-building.jpg',
             link: 'https://decorudm.ru/page73805897.html',
           },
         },
       ],
     },
+
+    // ── 2. Салон (начало) ──
     {
       id: 'salon',
       order: 2,
@@ -55,7 +58,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Русские народные наряды',
             description:
-              'Коллекция русских народных костюмов в стеклянной витрине — образцы традиционного текстиля, вышивки и элементов праздничного убора.',
+              'Коллекция русских народных костюмов в стеклянной витрине.',
             image: '/panoramas/salon.jpg',
           },
         },
@@ -68,7 +71,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Настенный гобелен',
             description:
-              'Тканый гобелен с геометрическим орнаментом в традиционной цветовой гамме — образец народного декоративно-прикладного искусства Удмуртии.',
+              'Тканый гобелен с геометрическим орнаментом — образец народного декоративно-прикладного искусства Удмуртии.',
             image: '/panoramas/salon.jpg',
           },
         },
@@ -81,7 +84,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Традиционные удмуртские фигурки',
             description:
-              'Фигурки в тематических удмуртских нарядах — миниатюрные скульптурные образы, отражающие традиции народного костюма и бытовой культуры.',
+              'Фигурки в тематических удмуртских нарядах — миниатюрные скульптурные образы.',
             image: '/panoramas/salon.jpg',
           },
         },
@@ -94,20 +97,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Керамика и дерево',
             description:
-              'Сборная экспозиция в центральных витринах: керамические изделия, деревянные поделки и текстильные работы.',
-            image: '/panoramas/salon.jpg',
-          },
-        },
-        {
-          id: 'salon-wall-art',
-          type: 'exhibit',
-          name: 'Панно',
-          yaw: '110deg',
-          pitch: '32deg',
-          exhibit: {
-            title: 'Настенные панно',
-            description:
-              'Серия декоративных панно в народном стиле над витринами вдоль правой стены зала.',
+              'Сборная экспозиция в центральных витринах: керамика, деревянные поделки и текстиль.',
             image: '/panoramas/salon.jpg',
           },
         },
@@ -120,17 +110,17 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Экспозиция вдоль стены',
             description:
-              'Длинный ряд витрин с подарочными изделиям из удмуртской керамики и дерева.',
+              'Длинный ряд витрин с подарочными изделиями из удмуртской керамики и дерева.',
             image: '/panoramas/salon.jpg',
           },
         },
         {
-          id: 'salon-to-dresses',
+          id: 'salon-forward',
           type: 'nav',
-          name: 'К платьям',
-          yaw: '-135deg',
-          pitch: '-10deg',
-          targetId: 'dresses',
+          name: 'Вперёд',
+          yaw: '12deg',
+          pitch: '-12deg',
+          targetId: 'salon-2',
         },
         {
           id: 'salon-to-street',
@@ -142,26 +132,142 @@ export const TOUR_DATA = {
         },
       ],
     },
+
+    // ── 3. Салон (глубже) ──
+    {
+      id: 'salon-2',
+      order: 3,
+      name: 'Салон',
+      description: 'Витрины и народные костюмы.',
+      url: '/panoramas/salon-2.jpg',
+      hotspots: [
+        {
+          id: 'salon2-dresses-rack',
+          type: 'exhibit',
+          name: 'Костюмы',
+          yaw: '-120deg',
+          pitch: '-6deg',
+          exhibit: {
+            title: 'Народные костюмы',
+            description:
+              'Стойка с традиционными костюмами и платьями — образцы народного текстиля.',
+            image: '/panoramas/salon-2.jpg',
+          },
+        },
+        {
+          id: 'salon2-tapestry',
+          type: 'exhibit',
+          name: 'Гобелен',
+          yaw: '95deg',
+          pitch: '2deg',
+          exhibit: {
+            title: 'Настенный гобелен',
+            description:
+              'Крупный тканый гобелен с ромбовидным орнаментом на правой стене зала.',
+            image: '/panoramas/salon-2.jpg',
+          },
+        },
+        {
+          id: 'salon2-cases',
+          type: 'exhibit',
+          name: 'Витрины',
+          yaw: '-20deg',
+          pitch: '-10deg',
+          exhibit: {
+            title: 'Центральные витрины',
+            description:
+              'Стеклянные витрины с керамикой, деревянными изделиями и сувенирами.',
+            image: '/panoramas/salon-2.jpg',
+          },
+        },
+        {
+          id: 'salon2-forward',
+          type: 'nav',
+          name: 'Вперёд',
+          yaw: '5deg',
+          pitch: '-14deg',
+          targetId: 'salon-3',
+        },
+        {
+          id: 'salon2-back',
+          type: 'nav',
+          name: 'Назад',
+          yaw: '175deg',
+          pitch: '-14deg',
+          targetId: 'salon',
+        },
+        {
+          id: 'salon2-to-dresses',
+          type: 'nav',
+          name: 'К платьям',
+          yaw: '-90deg',
+          pitch: '-12deg',
+          targetId: 'dresses',
+        },
+      ],
+    },
+
+    // ── 4. Салон (дальше) ──
+    {
+      id: 'salon-3',
+      order: 4,
+      name: 'Салон',
+      description: 'Глубина зала — витрины и переходы.',
+      url: '/panoramas/salon-3.jpg',
+      hotspots: [
+        {
+          id: 'salon3-vitrines',
+          type: 'exhibit',
+          name: 'Витрины',
+          yaw: '-30deg',
+          pitch: '-10deg',
+          exhibit: {
+            title: 'Витрины в глубине зала',
+            description:
+              'Ряд стеклянных витрин с народными промыслами и сувенирной продукцией.',
+            image: '/panoramas/salon-3.jpg',
+          },
+        },
+        {
+          id: 'salon3-tapestry',
+          type: 'exhibit',
+          name: 'Гобелен',
+          yaw: '110deg',
+          pitch: '0deg',
+          exhibit: {
+            title: 'Гобелен и текстиль',
+            description:
+              'Настенный гобелен и традиционные тканые полотна вдоль стены.',
+            image: '/panoramas/salon-3.jpg',
+          },
+        },
+        {
+          id: 'salon3-back',
+          type: 'nav',
+          name: 'Назад',
+          yaw: '178deg',
+          pitch: '-14deg',
+          targetId: 'salon-2',
+        },
+        {
+          id: 'salon3-to-dresses',
+          type: 'nav',
+          name: 'К платьям',
+          yaw: '88deg',
+          pitch: '-12deg',
+          targetId: 'dresses',
+        },
+      ],
+    },
+
+    // ── 5. Удм. платья ──
     {
       id: 'dresses',
-      order: 3,
+      order: 5,
       name: 'Удм. платья',
       description: 'Зал традиционных костюмов.',
       url: '/panoramas/dresses.jpg',
       hotspots: [
-        {
-          id: 'dresses-case-left',
-          type: 'exhibit',
-          name: 'Витрина',
-          yaw: '-135deg',
-          pitch: '-24deg',
-          exhibit: {
-            title: 'Витрина с аксессуарами',
-            description:
-              'Стеклянная витрина с украшениями и мелкими предметами традиционного быта.',
-            image: '/panoramas/dresses.jpg',
-          },
-        },
         {
           id: 'dresses-pair-left',
           type: 'exhibit',
@@ -171,7 +277,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Парные костюмы',
             description:
-              'Мужской и женский праздничные костюмы с серебряными украшениями и вышитыми головными уборами.',
+              'Мужской и женский праздничные костюмы с серебряными украшениями.',
             image: '/panoramas/dresses.jpg',
           },
         },
@@ -184,20 +290,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Женский костюм',
             description:
-              'Традиционное удмуртское платье с красно-белым орнаментом на фоне деревянной стеновой панели.',
-            image: '/panoramas/dresses.jpg',
-          },
-        },
-        {
-          id: 'dresses-chest',
-          type: 'exhibit',
-          name: 'Сундук',
-          yaw: '-55deg',
-          pitch: '-22deg',
-          exhibit: {
-            title: 'Деревянный сундук',
-            description:
-              'Расписной деревянный сундук — традиционный предмет домашнего обихода удмуртских семей.',
+              'Традиционное удмуртское платье с красно-белым орнаментом.',
             image: '/panoramas/dresses.jpg',
           },
         },
@@ -210,7 +303,7 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Праздничные наряды',
             description:
-              'Комплект костюмов с дендорами и серебряными нагрудными украшениями на фоне коврового панно.',
+              'Комплект костюмов с дендорами и серебряными нагрудными украшениями.',
             image: '/panoramas/dresses.jpg',
           },
         },
@@ -222,31 +315,149 @@ export const TOUR_DATA = {
           pitch: '-15deg',
           exhibit: {
             title: 'Текстиль и украшения',
-            description:
-              'Витрина с текстильными изделиями и бижутерией в правой части зала.',
+            description: 'Витрина с текстильными изделиями и бижутерией.',
             image: '/panoramas/dresses.jpg',
           },
         },
         {
-          id: 'dresses-costume-far',
-          type: 'exhibit',
-          name: 'Костюм',
-          yaw: '135deg',
-          pitch: '-8deg',
-          exhibit: {
-            title: 'Мужской костюм',
-            description:
-              'Традиционный мужской костюм с красной вышивкой у дверного проёма.',
-            image: '/panoramas/dresses.jpg',
-          },
+          id: 'dresses-to-weaving',
+          type: 'nav',
+          name: 'Ткачество',
+          yaw: '0deg',
+          pitch: '-14deg',
+          targetId: 'weaving',
+        },
+        {
+          id: 'dresses-to-painting',
+          type: 'nav',
+          name: 'Роспись',
+          yaw: '130deg',
+          pitch: '-12deg',
+          targetId: 'painting',
         },
         {
           id: 'dresses-to-salon',
           type: 'nav',
           name: 'В салон',
-          yaw: '-370deg',
+          yaw: '178deg',
           pitch: '-15deg',
-          targetId: 'salon',
+          targetId: 'salon-3',
+        },
+      ],
+    },
+
+    // ── 6. Ткачество ──
+    {
+      id: 'weaving',
+      order: 6,
+      name: 'Ткачество',
+      description: 'Мастерская ткачества.',
+      url: '/panoramas/weaving.jpg',
+      hotspots: [
+        {
+          id: 'weaving-looms',
+          type: 'exhibit',
+          name: 'Станки',
+          yaw: '-30deg',
+          pitch: '-8deg',
+          exhibit: {
+            title: 'Ткацкие станки',
+            description:
+              'Деревянные ткацкие станки — традиционное оборудование для ручного ткачества.',
+            image: '/panoramas/weaving.jpg',
+          },
+        },
+        {
+          id: 'weaving-tapestry',
+          type: 'exhibit',
+          name: 'Гобелен',
+          yaw: '-110deg',
+          pitch: '-3deg',
+          exhibit: {
+            title: 'Настенный гобелен',
+            description:
+              'Тканый гобелен с геометрическим орнаментом на стене мастерской.',
+            image: '/panoramas/weaving.jpg',
+          },
+        },
+        {
+          id: 'weaving-yarn',
+          type: 'exhibit',
+          name: 'Пряжа',
+          yaw: '75deg',
+          pitch: '-5deg',
+          exhibit: {
+            title: 'Пряжа и материалы',
+            description:
+              'Полки с катушками пряжи разных цветов для ткачества.',
+            image: '/panoramas/weaving.jpg',
+          },
+        },
+        {
+          id: 'weaving-to-dresses',
+          type: 'nav',
+          name: 'К платьям',
+          yaw: '92deg',
+          pitch: '-14deg',
+          targetId: 'dresses',
+        },
+      ],
+    },
+
+    // ── 7. Роспись ──
+    {
+      id: 'painting',
+      order: 7,
+      name: 'Роспись',
+      description: 'Мастерская народной росписи.',
+      url: '/panoramas/painting.jpg',
+      hotspots: [
+        {
+          id: 'painting-matryoshka',
+          type: 'exhibit',
+          name: 'Матрёшки',
+          yaw: '-75deg',
+          pitch: '-6deg',
+          exhibit: {
+            title: 'Роспись матрёшек',
+            description:
+              'Мастерская росписи деревянных матрёшек — традиционный народный промысел.',
+            image: '/panoramas/painting.jpg',
+          },
+        },
+        {
+          id: 'painting-desk',
+          type: 'exhibit',
+          name: 'Мольберт',
+          yaw: '15deg',
+          pitch: '-10deg',
+          exhibit: {
+            title: 'Рабочее место художника',
+            description:
+              'Стол с красками, кистями и образцами орнаментов для росписи.',
+            image: '/panoramas/painting.jpg',
+          },
+        },
+        {
+          id: 'painting-tapestry',
+          type: 'exhibit',
+          name: 'Панно',
+          yaw: '40deg',
+          pitch: '5deg',
+          exhibit: {
+            title: 'Настенное панно',
+            description:
+              'Тканый орнамент на стене мастерской — образец для росписи.',
+            image: '/panoramas/painting.jpg',
+          },
+        },
+        {
+          id: 'painting-to-dresses',
+          type: 'nav',
+          name: 'К платьям',
+          yaw: '95deg',
+          pitch: '-14deg',
+          targetId: 'dresses',
         },
       ],
     },
