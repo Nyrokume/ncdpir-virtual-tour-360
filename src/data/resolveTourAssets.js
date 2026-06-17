@@ -1,9 +1,12 @@
 import { assetUrl } from '../lib/assets';
+import { enrichTourData } from './tourEnrichment';
 
 export function resolveTourAssets(tour) {
+  const enriched = enrichTourData(tour);
+
   return {
-    ...tour,
-    panoramas: tour.panoramas.map((p) => ({
+    ...enriched,
+    panoramas: enriched.panoramas.map((p) => ({
       ...p,
       url: assetUrl(p.url),
       hotspots: (p.hotspots || []).map((h) => ({

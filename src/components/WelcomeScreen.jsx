@@ -19,9 +19,7 @@ export default function WelcomeScreen({ tour, onStart }) {
         </p>
 
         <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.1] tracking-tight md:text-7xl">
-          {tour.tourTitle}
-          <br />
-          <span className="text-white/60">в 360°</span>
+          Тайны дома Жерехова
         </h1>
 
         <p className="mt-6 max-w-md text-base leading-relaxed text-white/50">

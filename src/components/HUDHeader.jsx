@@ -1,10 +1,12 @@
-import { Map } from 'lucide-react';
+import { Map, Wrench } from 'lucide-react';
 
 export default function HUDHeader({
   panorama,
   currentIndex,
   total,
   onToggleMap,
+  onToggleDevTools,
+  devToolsOpen = false,
 }) {
   const order = String(currentIndex + 1).padStart(2, '0');
   const totalStr = String(total).padStart(2, '0');
@@ -33,7 +35,24 @@ export default function HUDHeader({
           {panorama.name}
         </h2>
 
-        <div className="w-[52px] shrink-0" aria-hidden />
+        <div className="flex w-[52px] shrink-0 items-center justify-end">
+          {onToggleDevTools && (
+            <button
+              type="button"
+              onClick={onToggleDevTools}
+              className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+                devToolsOpen
+                  ? 'bg-amber-400/20 text-amber-300'
+                  : 'text-white/50 hover:bg-white/10 hover:text-amber-200'
+              }`}
+              aria-label="Редактор маркеров"
+              title="Dev: редактор маркеров"
+              data-testid="dev-tools-toggle"
+            >
+              <Wrench className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
       </div>
     </header>
   );

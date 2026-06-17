@@ -108,6 +108,174 @@
   color: #fff;
 }
 
+/* ── Detail marker (costume part) ── */
+.psv-hotspot--detail {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psv-hotspot--detail .psv-hotspot__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 200, 100, 0.9);
+  background: rgba(255, 160, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.psv-hotspot--detail .psv-hotspot__dot {
+  position: relative;
+  z-index: 1;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffc864;
+}
+
+.psv-hotspot--detail:hover .psv-hotspot__ring {
+  transform: scale(1.15);
+  background: rgba(255, 160, 0, 0.35);
+}
+
+.psv-hotspot--detail:hover .psv-hotspot__label,
+.psv-hotspot--quiz:hover .psv-hotspot__quiz-tag {
+  border-color: rgba(255, 42, 42, 0.55);
+  color: #fff;
+}
+
+/* ── Quiz trigger marker ── */
+.psv-hotspot--quiz {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psv-hotspot--quiz .psv-hotspot__ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  background: rgba(8, 8, 8, 0.72);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.psv-hotspot--quiz .psv-hotspot__quiz {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ff2a2a;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 42, 42, 0.35);
+}
+
+.psv-hotspot--quiz .psv-hotspot__quiz-tag {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 6px);
+  z-index: 2;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 42, 42, 0.35);
+  background: rgba(0, 0, 0, 0.78);
+  padding: 3px 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffb8b8;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.psv-hotspot--quiz .psv-hotspot__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.psv-hotspot--quiz-pending .psv-hotspot__pulse {
+  animation: quiz-marker-pulse 2.8s ease-out infinite;
+}
+
+.psv-hotspot--quiz .psv-hotspot__label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.psv-hotspot--quiz-pending .psv-hotspot__ring {
+  box-shadow:
+    0 0 0 3px rgba(255, 42, 42, 0.15),
+    0 0 14px rgba(255, 42, 42, 0.25);
+}
+
+.psv-hotspot--quiz:hover .psv-hotspot__ring {
+  transform: scale(1.08);
+  border-color: #ff2a2a;
+  box-shadow: 0 0 16px rgba(255, 42, 42, 0.35);
+}
+
+@keyframes quiz-marker-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* ── Dev marker editor ── */
+.marker-edit-mode .psv-hotspot--editable {
+  cursor: grab;
+}
+
+.marker-edit-mode .psv-hotspot--editable:active {
+  cursor: grabbing;
+}
+
+.marker-edit-mode .psv-hotspot--editable .psv-hotspot__ring {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.25);
+}
+
+.marker-edit-mode .psv-hotspot--editable .psv-hotspot__label {
+  opacity: 1;
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #fde68a;
+}
+
+.marker-place-mode .psv-canvas-container {
+  cursor: crosshair;
+}
+
 /* Noise texture for welcome screen */
 .noise-bg::before {
   content: '';
@@ -116,4 +284,48 @@
   opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   pointer-events: none;
+}
+
+/* ── Exhibit modal scrollbar ── */
+.exhibit-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 42, 42, 0.45) rgba(255, 255, 255, 0.05);
+}
+
+.exhibit-modal-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.exhibit-modal-scroll::-webkit-scrollbar-track {
+  margin: 8px 0;
+  background: transparent;
+}
+
+.exhibit-modal-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 42, 42, 0.55) 0%,
+    rgba(255, 42, 42, 0.3) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exhibit-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 42, 42, 0.75) 0%,
+    rgba(255, 42, 42, 0.45) 100%
+  );
+}
+
+.exhibit-modal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.95), transparent);
 }
