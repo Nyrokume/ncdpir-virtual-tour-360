@@ -70,7 +70,12 @@ export default function AudioPlayer({ src, title, autoPlay = false }) {
       className="fixed bottom-20 right-4 z-30 flex max-w-[min(100vw-2rem,360px)] items-center gap-2 rounded-full border border-white/10 bg-black/70 px-3 py-2 backdrop-blur-md md:bottom-6"
       data-testid="audio-player"
     >
-      <audio ref={audioRef} src={assetUrl(src)} onEnded={() => setPlaying(false)} />
+      <audio
+        ref={audioRef}
+        src={assetUrl(src)}
+        preload="none"
+        onEnded={() => setPlaying(false)}
+      />
       {needsInteraction && !playing && (
         <button
           type="button"

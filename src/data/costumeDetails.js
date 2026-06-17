@@ -297,35 +297,3 @@ export const COSTUME_DETAILS = {
     },
   ],
 };
-
-/** Начальные detail-hotspot'ы на панораме dresses (фаза 2) */
-export const DRESS_DETAIL_HOTSPOTS = [
-  {
-    id: 'dresses-detail-kal-rubakha',
-    parentExhibitId: 'dresses-center',
-    detailId: 'kal-rubakha',
-    yaw: '318deg',
-    pitch: '-3deg',
-  },
-  {
-    id: 'dresses-detail-kal-fartuk',
-    parentExhibitId: 'dresses-center',
-    detailId: 'kal-fartuk',
-    yaw: '314deg',
-    pitch: '-7deg',
-  },
-  {
-    id: 'dresses-detail-yug-aishon',
-    parentExhibitId: 'dresses-exhibit-mqif2xyp',
-    detailId: 'yug-aishon',
-    yaw: '236deg',
-    pitch: '-5deg',
-  },
-  {
-    id: 'dresses-detail-bes-shapochka',
-    parentExhibitId: 'dresses-pair-right',
-    detailId: 'bes-shapochka',
-    yaw: '66deg',
-    pitch: '-3deg',
-  },
-];

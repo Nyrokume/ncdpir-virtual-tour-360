@@ -1,8 +1,18 @@
 import { ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 import { countExhibits } from '../data/tourData';
+import { assetUrl } from '../lib/assets';
+import { preloadPanoramas } from '../lib/panoramaPreload';
 
 export default function WelcomeScreen({ tour, onStart }) {
   const exhibitCount = countExhibits(tour.panoramas);
+
+  useEffect(() => {
+    preloadPanoramas([
+      assetUrl('/panoramas/street.jpg'),
+      assetUrl('/panoramas/salon.jpg'),
+    ]);
+  }, []);
 
   return (
     <div

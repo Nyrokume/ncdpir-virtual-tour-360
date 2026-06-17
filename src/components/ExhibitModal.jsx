@@ -42,6 +42,8 @@ export default function ExhibitModal({ exhibit, onClose }) {
                 <img
                   src={exhibit.image}
                   alt={exhibit.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/20 to-transparent" />

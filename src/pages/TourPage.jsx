@@ -1,18 +1,14 @@
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect, lazy, Suspense } from 'react';
 import { TOUR_DATA } from '../data/tourData';
 import { resolveTourAssets } from '../data/resolveTourAssets';
 import { getStepByPanoramaId, getPanoramaAudio, getQuizAudio } from '../data/scenarioData';
 import { useScenarioProgress } from '../hooks/useScenarioProgress';
+import { usePanoramaPreload } from '../hooks/usePanoramaPreload';
 import WelcomeScreen from '../components/WelcomeScreen';
-import PanoramaViewer from '../components/PanoramaViewer';
 import HUDHeader from '../components/HUDHeader';
-import MapPanel from '../components/MapPanel';
-import ExhibitModal from '../components/ExhibitModal';
 import ScenarioOverlay from '../components/scenario/ScenarioOverlay';
-import QuizRunner from '../components/scenario/QuizRunner';
 import AudioPlayer from '../components/scenario/AudioPlayer';
 import DetailPopover from '../components/scenario/DetailPopover';
-import MarkerEditorPanel from '../dev/MarkerEditorPanel';
 import {
   addHotspot,
   applyEditorState,
@@ -28,6 +24,12 @@ import {
 } from '../dev/markerEditor';
 import '../App.css';
 
+const PanoramaViewer = lazy(() => import('../components/PanoramaViewer'));
+const MapPanel = lazy(() => import('../components/MapPanel'));
+const ExhibitModal = lazy(() => import('../components/ExhibitModal'));
+const QuizRunner = lazy(() => import('../components/scenario/QuizRunner'));
+const MarkerEditorPanel = lazy(() => import('../dev/MarkerEditorPanel'));
+
 const IS_DEV = import.meta.env.DEV;
 const MARKER_EDIT_ENABLED =
   IS_DEV && new URLSearchParams(window.location.search).has('markerEdit');
@@ -35,6 +37,16 @@ const MARKER_EDIT_AUTO_OPEN = MARKER_EDIT_ENABLED;
 
 const ROUTE_BTN_BASE =
   'fixed bottom-20 left-4 z-30 rounded-full px-5 py-2.5 font-mono text-xs uppercase tracking-wider backdrop-blur-md transition md:bottom-6 md:px-6 md:py-3 md:text-sm';
+
+function PanoramaLoader() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-canvas">
+      <p className="font-mono text-xs uppercase tracking-widest text-white/40">
+        Загрузка панорамы…
+      </p>
+    </div>
+  );
+}
 
 export default function TourPage() {
   const [tour] = useState(() => resolveTourAssets(TOUR_DATA));
@@ -60,6 +72,13 @@ export default function TourPage() {
 
   const scenario = useScenarioProgress(panoramas);
   const current = panoramas[currentIndex];
+
+  usePanoramaPreload({
+    panoramas,
+    currentPanorama: welcomeSeen ? current : null,
+    getNextPanoramaId: scenario.getNextPanoramaId,
+    getRecommendedPanoramaId: scenario.getRecommendedPanoramaId,
+  });
 
   useEffect(() => {
     if (!MARKER_EDIT_ENABLED) return;
@@ -326,16 +345,19 @@ export default function TourPage() {
       className="relative h-full w-full overflow-hidden bg-canvas"
       data-testid={scenario.started ? 'tour-page' : 'tour-entry'}
     >
-      <PanoramaViewer
-        panorama={current}
-        onHotspotClick={scenario.started ? handleHotspotClick : () => {}}
-        editMode={editMode}
-        placeMode={placeMode}
-        placeTemplate={placeTemplate}
-        onHotspotMove={handleHotspotMove}
-        onHotspotCreate={handleHotspotCreate}
-        quizPending={quizPending}
-      />
+      <Suspense fallback={<PanoramaLoader />}>
+        <PanoramaViewer
+          key={current.id}
+          panorama={current}
+          onHotspotClick={scenario.started ? handleHotspotClick : () => {}}
+          editMode={editMode}
+          placeMode={placeMode}
+          placeTemplate={placeTemplate}
+          onHotspotMove={handleHotspotMove}
+          onHotspotCreate={handleHotspotCreate}
+          quizPending={quizPending}
+        />
+      </Suspense>
 
       {scenario.started && (
         <HUDHeader
@@ -418,7 +440,8 @@ export default function TourPage() {
       )}
 
       {MARKER_EDIT_ENABLED && editorOpen && (
-        <MarkerEditorPanel
+        <Suspense fallback={null}>
+          <MarkerEditorPanel
           panorama={current}
           panoramas={basePanoramas}
           editorState={editorState}
@@ -452,10 +475,12 @@ export default function TourPage() {
           }}
           saveStatus={saveStatus}
         />
+        </Suspense>
       )}
 
       {scenario.started && mapOpen && (
-        <MapPanel
+        <Suspense fallback={null}>
+          <MapPanel
           panoramas={panoramas}
           currentIndex={currentIndex}
           visited={visited}
@@ -468,13 +493,16 @@ export default function TourPage() {
           }}
           onClose={() => setMapOpen(false)}
         />
+        </Suspense>
       )}
 
       {activeExhibit && (
-        <ExhibitModal
+        <Suspense fallback={null}>
+          <ExhibitModal
           exhibit={activeExhibit}
           onClose={() => setActiveExhibit(null)}
         />
+        </Suspense>
       )}
 
       {activeDetail && (
@@ -511,11 +539,13 @@ export default function TourPage() {
       )}
 
       {scenario.activeQuiz && (
-        <QuizRunner
+        <Suspense fallback={null}>
+          <QuizRunner
           quiz={scenario.activeQuiz}
           onClose={() => scenario.setActiveQuizId(null)}
           onComplete={(message) => scenario.handleQuizComplete(current.id, message)}
         />
+        </Suspense>
       )}
     </div>
   );

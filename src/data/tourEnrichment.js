@@ -5,7 +5,7 @@ import {
   SCENARIO_META,
   SCENARIO_STEPS,
 } from './scenarioData';
-import { COSTUME_DETAILS, DRESS_DETAIL_HOTSPOTS, COSTUME_EXHIBITS } from './costumeDetails';
+import { COSTUME_DETAILS, COSTUME_EXHIBITS } from './costumeDetails';
 
 const HALL_INFO = {
   'art-processing': {
@@ -166,32 +166,12 @@ function injectQuizHotspots(panoramaId, hotspots) {
   return result;
 }
 
-function buildDetailHotspots(panoramaId) {
-  if (panoramaId !== 'dresses') return [];
-
-  return DRESS_DETAIL_HOTSPOTS.map((d) => {
-    const details = COSTUME_DETAILS[d.parentExhibitId];
-    const detail = details?.find((item) => item.id === d.detailId);
-    if (!detail) return null;
-
-    return {
-      id: d.id,
-      type: 'detail',
-      name: detail.name,
-      yaw: d.yaw,
-      pitch: d.pitch,
-      detail,
-    };
-  }).filter(Boolean);
-}
-
 export function enrichTourData(tourData) {
   const panoramas = tourData.panoramas.map((p) => {
     let hotspots = (p.hotspots || []).map((h) => enrichHotspot(p.id, h));
     hotspots = injectQuizHotspots(p.id, hotspots);
-    const extra = buildDetailHotspots(p.id);
 
-    return { ...p, hotspots: [...hotspots, ...extra] };
+    return { ...p, hotspots };
   });
 
   return {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import { useEffect, useRef, useCallback, useMemo, useState, memo } from 'react';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
 import '@photo-sphere-viewer/core/index.css';
@@ -56,7 +56,7 @@ function coordsFromPointer(viewer, clientX, clientY) {
   };
 }
 
-export default function PanoramaViewer({
+function PanoramaViewer({
   panorama,
   onHotspotClick,
   editMode = false,
@@ -271,6 +271,8 @@ export default function PanoramaViewer({
     return () => container.removeEventListener('pointerdown', onPointerDown, true);
   }, [editMode, placeActive, onHotspotMove, panorama.id, viewerReady]);
 
+  const plugins = useMemo(() => [[MarkersPlugin, { markers }]], [markers]);
+
   const modeClass = [
     editMode ? 'marker-edit-mode' : '',
     placeActive ? 'marker-place-mode' : '',
@@ -288,7 +290,7 @@ export default function PanoramaViewer({
         src={panorama.url}
         height="100vh"
         width="100%"
-        plugins={[[MarkersPlugin, { markers }]]}
+        plugins={plugins}
         navbar={false}
         defaultZoomLvl={20}
         minFov={40}
@@ -302,3 +304,5 @@ export default function PanoramaViewer({
     </div>
   );
 }
+
+export default memo(PanoramaViewer);
