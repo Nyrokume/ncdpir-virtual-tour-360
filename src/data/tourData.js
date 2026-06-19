@@ -49,18 +49,6 @@ export const TOUR_DATA = {
       url: '/panoramas/salon.jpg',
       hotspots: [
         {
-          id: 'salon-case-left',
-          type: 'exhibit',
-          name: 'Наряды',
-          yaw: '308.1deg',
-          pitch: '-5.1deg',
-          exhibit: {
-            title: 'Русские народные наряды',
-            description: 'Коллекция русских народных костюмов в стеклянной витрине.',
-            image: '/panoramas/salon.jpg',
-          },
-        },
-        {
           id: 'salon-tapestry',
           type: 'exhibit',
           name: 'Гобелен',
@@ -70,45 +58,6 @@ export const TOUR_DATA = {
             title: 'Настенный гобелен',
             description:
               'Тканый гобелен с геометрическим орнаментом — образец народного декоративно-прикладного искусства Удмуртии.',
-            image: '/panoramas/salon.jpg',
-          },
-        },
-        {
-          id: 'salon-figurines',
-          type: 'exhibit',
-          name: 'Фигурки',
-          yaw: '257deg',
-          pitch: '-19.9deg',
-          exhibit: {
-            title: 'Традиционные удмуртские фигурки',
-            description:
-              'Фигурки в тематических удмуртских нарядах — миниатюрные скульптурные образы.',
-            image: '/panoramas/salon.jpg',
-          },
-        },
-        {
-          id: 'salon-cases-center',
-          type: 'exhibit',
-          name: 'Керамика',
-          yaw: '18.7deg',
-          pitch: '-18.7deg',
-          exhibit: {
-            title: 'Керамика и дерево',
-            description:
-              'Сборная экспозиция в центральных витринах: керамика, деревянные поделки и текстиль.',
-            image: '/panoramas/salon.jpg',
-          },
-        },
-        {
-          id: 'salon-cases-right',
-          type: 'exhibit',
-          name: 'Витрины',
-          yaw: '88.3deg',
-          pitch: '-10.8deg',
-          exhibit: {
-            title: 'Экспозиция вдоль стены',
-            description:
-              'Длинный ряд витрин с подарочными изделиями из удмуртской керамики и дерева.',
             image: '/panoramas/salon.jpg',
           },
         },
@@ -152,8 +101,8 @@ export const TOUR_DATA = {
           id: 'salon-quiz-trigger',
           type: 'exhibit',
           name: 'Викторина',
-          yaw: '224deg',
-          pitch: '-2.5deg',
+          yaw: '224.8deg',
+          pitch: '0.3deg',
           exhibit: {
             title: '',
             image: '',
@@ -171,19 +120,6 @@ export const TOUR_DATA = {
       url: '/panoramas/salon-2.jpg',
       hotspots: [
         {
-          id: 'salon2-dresses-rack',
-          type: 'exhibit',
-          name: 'Костюмы',
-          yaw: '221deg',
-          pitch: '-15deg',
-          exhibit: {
-            title: 'Народные костюмы',
-            description:
-              'Стойка с традиционными костюмами и платьями — образцы народного текстиля.',
-            image: '/panoramas/salon-2.jpg',
-          },
-        },
-        {
           id: 'salon2-tapestry',
           type: 'exhibit',
           name: 'Гобелен',
@@ -192,18 +128,6 @@ export const TOUR_DATA = {
           exhibit: {
             title: 'Настенный гобелен',
             description: 'Крупный тканый гобелен с ромбовидным орнаментом на правой стене зала.',
-            image: '/panoramas/salon-2.jpg',
-          },
-        },
-        {
-          id: 'salon2-cases',
-          type: 'exhibit',
-          name: 'Витрины',
-          yaw: '305.7deg',
-          pitch: '-17.9deg',
-          exhibit: {
-            title: 'Центральные витрины',
-            description: 'Стеклянные витрины с керамикой, деревянными изделиями и сувенирами.',
             image: '/panoramas/salon-2.jpg',
           },
         },
@@ -255,23 +179,11 @@ export const TOUR_DATA = {
       url: '/panoramas/salon-3.jpg',
       hotspots: [
         {
-          id: 'salon3-vitrines',
-          type: 'exhibit',
-          name: 'Витрины',
-          yaw: '273.1deg',
-          pitch: '-31.3deg',
-          exhibit: {
-            title: 'Витрины в глубине зала',
-            description: 'Ряд стеклянных витрин с народными промыслами и сувенирной продукцией.',
-            image: '/panoramas/salon-3.jpg',
-          },
-        },
-        {
           id: 'salon3-tapestry',
           type: 'exhibit',
           name: 'Гобелен',
-          yaw: '110deg',
-          pitch: '0deg',
+          yaw: '130.5deg',
+          pitch: '3.1deg',
           exhibit: {
             title: 'Гобелен и текстиль',
             description: 'Настенный гобелен и традиционные тканые полотна вдоль стены.',
@@ -285,30 +197,6 @@ export const TOUR_DATA = {
           yaw: '80.5deg',
           pitch: '-28.9deg',
           targetId: 'salon-2',
-        },
-        {
-          id: 'salon-3-exhibit-mqh3ehks',
-          type: 'exhibit',
-          name: 'Витрина',
-          yaw: '10.9deg',
-          pitch: '-13.7deg',
-          exhibit: {
-            title: 'Витрина',
-            description: 'Добавьте описание в редакторе.',
-            image: '/panoramas/salon-3.jpg',
-          },
-        },
-        {
-          id: 'salon-3-exhibit-mqh3evl1',
-          type: 'exhibit',
-          name: 'Костюмы',
-          yaw: '157.3deg',
-          pitch: '-16.4deg',
-          exhibit: {
-            title: 'Костюмы',
-            description: 'Добавьте описание в редакторе.',
-            image: '/panoramas/salon-3.jpg',
-          },
         },
         {
           id: 'salon3-to-dresses',
@@ -505,18 +393,6 @@ export const TOUR_DATA = {
           },
         },
         {
-          id: 'weaving-tapestry',
-          type: 'exhibit',
-          name: 'Гобелен',
-          yaw: '202.5deg',
-          pitch: '8.4deg',
-          exhibit: {
-            title: 'Настенный гобелен',
-            description: 'Тканый гобелен с геометрическим орнаментом на стене мастерской.',
-            image: '/panoramas/weaving.jpg',
-          },
-        },
-        {
           id: 'weaving-yarn',
           type: 'exhibit',
           name: 'Пряжа',
@@ -535,18 +411,6 @@ export const TOUR_DATA = {
           yaw: '98.4deg',
           pitch: '-20.3deg',
           targetId: 'dresses',
-        },
-        {
-          id: 'weaving-copy-mqi9ss04',
-          type: 'exhibit',
-          name: 'Гобелен',
-          yaw: '30.6deg',
-          pitch: '8deg',
-          exhibit: {
-            title: 'Гобелен',
-            description: 'Добавьте описание в редакторе.',
-            image: '/panoramas/weaving.jpg',
-          },
         },
         {
           id: 'weaving-quiz-trigger',
@@ -586,23 +450,11 @@ export const TOUR_DATA = {
           id: 'painting-desk',
           type: 'exhibit',
           name: 'Мольберт',
-          yaw: '318deg',
-          pitch: '-23.8deg',
+          yaw: '315.4deg',
+          pitch: '-20.8deg',
           exhibit: {
             title: 'Рабочее место художника',
             description: 'Стол с красками, кистями и образцами орнаментов для росписи.',
-            image: '/panoramas/painting.jpg',
-          },
-        },
-        {
-          id: 'painting-tapestry',
-          type: 'exhibit',
-          name: 'Панно',
-          yaw: '58deg',
-          pitch: '8deg',
-          exhibit: {
-            title: 'Настенное панно',
-            description: 'Тканый орнамент на стене мастерской — образец для росписи.',
             image: '/panoramas/painting.jpg',
           },
         },
@@ -687,8 +539,8 @@ export const TOUR_DATA = {
           id: 'art-processing-quiz-trigger',
           type: 'exhibit',
           name: 'Викторина',
-          yaw: '233.7deg',
-          pitch: '9.1deg',
+          yaw: '306.8deg',
+          pitch: '-13deg',
           exhibit: {
             title: '',
             image: '',
@@ -709,25 +561,12 @@ export const TOUR_DATA = {
           id: 'sewing-machine',
           type: 'exhibit',
           name: 'Швейная машина',
-          yaw: '66deg',
-          pitch: '-15.6deg',
+          yaw: '66.9deg',
+          pitch: '-13.8deg',
           exhibit: {
             title: 'Рабочее место портного',
             description:
               'Швейная машина и стол с тканями — здесь создают традиционные костюмы и текстильные изделия.',
-            image: '/panoramas/sewing.jpg',
-          },
-        },
-        {
-          id: 'sewing-textile',
-          type: 'exhibit',
-          name: 'Текстиль',
-          yaw: '28.3deg',
-          pitch: '-32.8deg',
-          exhibit: {
-            title: 'Настенный текстиль',
-            description:
-              'Тканые панно, сухие травы и ленты — декоративные образцы народного орнамента.',
             image: '/panoramas/sewing.jpg',
           },
         },
@@ -751,50 +590,36 @@ export const TOUR_DATA = {
       url: '/panoramas/music.jpg',
       hotspots: [
         {
-          id: 'music-instrument',
-          type: 'exhibit',
-          name: 'Инструмент',
-          yaw: '65.8deg',
-          pitch: '-27.7deg',
-          exhibit: {
-            title: 'Изготовление инструментов',
-            description:
-              'Деревянный корпус струнного инструмента на верстаке — работа мастера-ремесленника.',
-            image: '/panoramas/music.jpg',
-          },
-        },
-        {
-          id: 'music-workbench',
-          type: 'exhibit',
-          name: 'Верстак',
-          yaw: '110.3deg',
-          pitch: '-42.2deg',
-          exhibit: {
-            title: 'Столярный верстак',
-            description:
-              'Верстак с инструментами, струбцинами и заготовками для ручной обработки дерева.',
-            image: '/panoramas/music.jpg',
-          },
-        },
-        {
-          id: 'music-tools',
-          type: 'exhibit',
-          name: 'Инструменты',
-          yaw: '228.5deg',
-          pitch: '2.1deg',
-          exhibit: {
-            title: 'Стенд с инструментами',
-            description: 'Пила, рубанки и мелкий столярный инвентарь на стене мастерской.',
-            image: '/panoramas/music.jpg',
-          },
-        },
-        {
           id: 'music-to-dresses',
           type: 'nav',
           name: 'Платья',
           yaw: '179.4deg',
           pitch: '-10.3deg',
           targetId: 'dresses',
+        },
+        {
+          id: 'music-exhibit-mqld4szg',
+          type: 'exhibit',
+          name: 'Экспонат',
+          yaw: '260.9deg',
+          pitch: '-4.3deg',
+          exhibit: {
+            title: 'Экспонат',
+            description: 'Добавьте описание в редакторе.',
+            image: '/panoramas/music.jpg',
+          },
+        },
+        {
+          id: 'music-hall-info',
+          type: 'exhibit',
+          name: 'Экспонат',
+          yaw: '60deg',
+          pitch: '-39deg',
+          exhibit: {
+            title: 'Экспонат',
+            description: 'Добавьте описание в редакторе.',
+            image: '/panoramas/music.jpg',
+          },
         }
       ],
     },
@@ -817,18 +642,6 @@ export const TOUR_DATA = {
             title: 'Художественный текстиль',
             description:
               'Ткацкие работы и текстильные образцы в мастерской художественного текстиля.',
-            image: '/panoramas/art-textile.jpg',
-          },
-        },
-        {
-          id: 'textile-samples',
-          type: 'exhibit',
-          name: 'Образцы',
-          yaw: '72.9deg',
-          pitch: '5.4deg',
-          exhibit: {
-            title: 'Текстильные образцы',
-            description: 'Коллекция тканей и орнаментов для художественной обработки текстиля.',
             image: '/panoramas/art-textile.jpg',
           },
         },

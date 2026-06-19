@@ -2,10 +2,6 @@
   "scenes": {
     "salon": {
       "positions": {
-        "salon-case-left": {
-          "yaw": "308.1deg",
-          "pitch": "-5.1deg"
-        },
         "salon-forward": {
           "yaw": "319.3deg",
           "pitch": "-24deg"
@@ -13,18 +9,6 @@
         "salon-tapestry": {
           "yaw": "273.9deg",
           "pitch": "3deg"
-        },
-        "salon-figurines": {
-          "yaw": "257deg",
-          "pitch": "-19.9deg"
-        },
-        "salon-cases-right": {
-          "yaw": "88.3deg",
-          "pitch": "-10.8deg"
-        },
-        "salon-cases-center": {
-          "yaw": "18.7deg",
-          "pitch": "-18.7deg"
         },
         "salon-to-dresses": {
           "yaw": "224deg",
@@ -35,12 +19,17 @@
           "pitch": "25.9deg"
         },
         "salon-quiz-trigger": {
-          "yaw": "224deg",
-          "pitch": "-2.5deg"
+          "yaw": "224.8deg",
+          "pitch": "0.3deg"
         }
       },
       "added": [],
-      "removed": [],
+      "removed": [
+        "salon-case-left",
+        "salon-cases-right",
+        "salon-cases-center",
+        "salon-figurines"
+      ],
       "meta": {
         "salon-exhibit-mqh3dca9": {
           "name": "Панно"
@@ -65,17 +54,9 @@
     },
     "salon-2": {
       "positions": {
-        "salon2-cases": {
-          "yaw": "305.7deg",
-          "pitch": "-17.9deg"
-        },
         "salon2-forward": {
           "yaw": "258.9deg",
           "pitch": "-31deg"
-        },
-        "salon2-dresses-rack": {
-          "yaw": "221deg",
-          "pitch": "-15deg"
         },
         "salon2-tapestry": {
           "yaw": "145.1deg",
@@ -95,7 +76,10 @@
         }
       },
       "added": [],
-      "removed": [],
+      "removed": [
+        "salon2-dresses-rack",
+        "salon2-cases"
+      ],
       "meta": {
         "salon-2-exhibit-mqh3dr24": {
           "name": "Панно"
@@ -104,10 +88,6 @@
     },
     "salon-3": {
       "positions": {
-        "salon3-vitrines": {
-          "yaw": "273.1deg",
-          "pitch": "-31.3deg"
-        },
         "salon3-to-dresses": {
           "yaw": "110.2deg",
           "pitch": "-8.3deg"
@@ -116,25 +96,18 @@
           "yaw": "80.5deg",
           "pitch": "-28.9deg"
         },
-        "salon-3-exhibit-mqh3ehks": {
-          "yaw": "10.9deg",
-          "pitch": "-13.7deg"
-        },
-        "salon-3-exhibit-mqh3evl1": {
-          "yaw": "157.3deg",
-          "pitch": "-16.4deg"
+        "salon3-tapestry": {
+          "yaw": "130.5deg",
+          "pitch": "3.1deg"
         }
       },
       "added": [],
-      "removed": [],
-      "meta": {
-        "salon-3-exhibit-mqh3ehks": {
-          "name": "Витрина"
-        },
-        "salon-3-exhibit-mqh3evl1": {
-          "name": "Костюмы"
-        }
-      }
+      "removed": [
+        "salon-3-exhibit-mqh3evl1",
+        "salon3-vitrines",
+        "salon-3-exhibit-mqh3ehks"
+      ],
+      "meta": {}
     },
     "dresses": {
       "positions": {
@@ -246,13 +219,9 @@
           "yaw": "111.7deg",
           "pitch": "-5.5deg"
         },
-        "painting-tapestry": {
-          "yaw": "58deg",
-          "pitch": "8deg"
-        },
         "painting-desk": {
-          "yaw": "318deg",
-          "pitch": "-23.8deg"
+          "yaw": "315.4deg",
+          "pitch": "-20.8deg"
         },
         "painting-matryoshka": {
           "yaw": "196.4deg",
@@ -264,15 +233,13 @@
         }
       },
       "added": [],
-      "removed": [],
+      "removed": [
+        "painting-tapestry"
+      ],
       "meta": {}
     },
     "weaving": {
       "positions": {
-        "weaving-tapestry": {
-          "yaw": "202.5deg",
-          "pitch": "8.4deg"
-        },
         "weaving-looms": {
           "yaw": "234.1deg",
           "pitch": "-20.4deg"
@@ -285,68 +252,59 @@
           "yaw": "98.4deg",
           "pitch": "-20.3deg"
         },
-        "weaving-copy-mqi9ss04": {
-          "yaw": "30.6deg",
-          "pitch": "8deg"
-        },
         "weaving-quiz-trigger": {
           "yaw": "260.5deg",
           "pitch": "-12.6deg"
         }
       },
       "added": [],
-      "removed": [],
-      "meta": {
-        "weaving-copy-mqi9ss04": {
-          "name": "Гобелен"
-        }
-      }
+      "removed": [
+        "weaving-tapestry",
+        "weaving-copy-mqi9ss04"
+      ],
+      "meta": {}
     },
     "sewing": {
       "positions": {
         "sewing-machine": {
-          "yaw": "66deg",
-          "pitch": "-15.6deg"
+          "yaw": "66.9deg",
+          "pitch": "-13.8deg"
         },
         "sewing-to-dresses": {
           "yaw": "207deg",
           "pitch": "-21.8deg"
-        },
-        "sewing-textile": {
-          "yaw": "28.3deg",
-          "pitch": "-32.8deg"
         }
       },
       "added": [],
       "removed": [
         "sewing-to-salon",
         "sewing-to-music",
-        "sewing-dolls"
+        "sewing-dolls",
+        "sewing-textile"
       ],
       "meta": {}
     },
     "music": {
       "positions": {
-        "music-workbench": {
-          "yaw": "110.3deg",
-          "pitch": "-42.2deg"
-        },
-        "music-instrument": {
-          "yaw": "65.8deg",
-          "pitch": "-27.7deg"
-        },
         "music-to-dresses": {
           "yaw": "179.4deg",
           "pitch": "-10.3deg"
         },
-        "music-tools": {
-          "yaw": "228.5deg",
-          "pitch": "2.1deg"
+        "music-exhibit-mqld4szg": {
+          "yaw": "260.9deg",
+          "pitch": "-4.3deg"
+        },
+        "music-hall-info": {
+          "yaw": "60deg",
+          "pitch": "-39deg"
         }
       },
       "added": [],
       "removed": [
-        "music-to-lounge"
+        "music-to-lounge",
+        "music-instrument",
+        "music-workbench",
+        "music-tools"
       ],
       "meta": {}
     },
@@ -355,10 +313,6 @@
         "textile-to-dresses": {
           "yaw": "166.1deg",
           "pitch": "-7deg"
-        },
-        "textile-samples": {
-          "yaw": "72.9deg",
-          "pitch": "5.4deg"
         },
         "textile-loom": {
           "yaw": "300.7deg",
@@ -370,7 +324,9 @@
         }
       },
       "added": [],
-      "removed": [],
+      "removed": [
+        "textile-samples"
+      ],
       "meta": {}
     },
     "art-processing": {
@@ -392,8 +348,8 @@
           "pitch": "-13.5deg"
         },
         "art-processing-quiz-trigger": {
-          "yaw": "233.7deg",
-          "pitch": "9.1deg"
+          "yaw": "306.8deg",
+          "pitch": "-13deg"
         }
       },
       "added": [],
@@ -401,5 +357,5 @@
       "meta": {}
     }
   },
-  "savedAt": "2026-06-17T21:41:40.808Z"
+  "savedAt": "2026-06-19T20:21:59.707Z"
 }

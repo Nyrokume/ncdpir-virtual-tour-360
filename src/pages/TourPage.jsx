@@ -31,12 +31,18 @@ const QuizRunner = lazy(() => import('../components/scenario/QuizRunner'));
 const MarkerEditorPanel = lazy(() => import('../dev/MarkerEditorPanel'));
 
 const IS_DEV = import.meta.env.DEV;
-const MARKER_EDIT_ENABLED =
+const MARKER_EDIT_ENABLED = IS_DEV;
+const MARKER_EDIT_AUTO_OPEN =
   IS_DEV && new URLSearchParams(window.location.search).has('markerEdit');
-const MARKER_EDIT_AUTO_OPEN = MARKER_EDIT_ENABLED;
 
 const ROUTE_BTN_BASE =
   'fixed bottom-20 left-4 z-30 rounded-full px-5 py-2.5 font-mono text-xs uppercase tracking-wider backdrop-blur-md transition md:bottom-6 md:px-6 md:py-3 md:text-sm';
+
+/** При переходе по nav-маркеру сразу открыть вводную карточку зала */
+const NAV_HALL_INTRO = {
+  sewing: 'sewing-machine',
+  music: 'music-hall-info',
+};
 
 function PanoramaLoader() {
   return (
@@ -103,10 +109,10 @@ export default function TourPage() {
   }, []);
 
   const goTo = useCallback(
-    (index) => {
+    (index, { exhibit = null } = {}) => {
       if (index < 0 || index >= panoramas.length) return;
       setCurrentIndex(index);
-      setActiveExhibit(null);
+      setActiveExhibit(exhibit);
       setActiveDetail(null);
       setPlaceMode(null);
       setPlaceTemplate(null);
@@ -155,7 +161,13 @@ export default function TourPage() {
 
       if (hotspot.type === 'nav') {
         const idx = panoramas.findIndex((p) => p.id === hotspot.targetId);
-        if (idx >= 0) goTo(idx);
+        if (idx >= 0) {
+          const introId = NAV_HALL_INTRO[hotspot.targetId];
+          const intro = introId
+            ? panoramas[idx].hotspots?.find((h) => h.id === introId)
+            : null;
+          goTo(idx, { exhibit: intro?.exhibit ?? null });
+        }
         return;
       }
 
@@ -359,12 +371,12 @@ export default function TourPage() {
         />
       </Suspense>
 
-      {scenario.started && (
+      {(scenario.started || MARKER_EDIT_ENABLED) && welcomeSeen && (
         <HUDHeader
           panorama={current}
           currentIndex={currentIndex}
           total={panoramas.length}
-          onToggleMap={() => setMapOpen((o) => !o)}
+          onToggleMap={scenario.started ? () => setMapOpen((o) => !o) : undefined}
           tourTitle={tour.tourTitle}
           onToggleDevTools={
             MARKER_EDIT_ENABLED
@@ -422,20 +434,6 @@ export default function TourPage() {
           className={`${ROUTE_BTN_BASE} border border-accent/30 bg-black/75 text-accent hover:border-accent/50 hover:bg-black/90`}
         >
           {routeHintLabel}
-        </button>
-      )}
-
-      {MARKER_EDIT_ENABLED && welcomeSeen && !editorOpen && (
-        <button
-          type="button"
-          onClick={() => {
-            setEditorOpen(true);
-            setEditMode(true);
-          }}
-          className="fixed bottom-4 right-4 z-40 rounded-full border border-amber-400/40 bg-black/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-amber-300 backdrop-blur-md transition hover:bg-black"
-          data-testid="marker-editor-open-btn"
-        >
-          Маркеры
         </button>
       )}
 
