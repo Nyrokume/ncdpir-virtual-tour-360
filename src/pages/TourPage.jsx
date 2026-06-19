@@ -72,9 +72,9 @@ export default function TourPage() {
   const basePanoramas = tour.panoramas;
 
   const panoramas = useMemo(() => {
-    if (!MARKER_EDIT_ENABLED) return basePanoramas;
+    if (!MARKER_EDIT_ENABLED || !editorOpen) return basePanoramas;
     return applyEditorState(basePanoramas, editorState);
-  }, [basePanoramas, editorState]);
+  }, [basePanoramas, editorState, editorOpen]);
 
   const scenario = useScenarioProgress(panoramas);
   const current = panoramas[currentIndex];

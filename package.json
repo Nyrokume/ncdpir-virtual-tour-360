@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/optimizeDistAssets.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:tour": "node -e \"import('./scripts/syncTourData.mjs').then(m => m.syncTourDataFromEditorState())\""
   },
   "dependencies": {
     "@photo-sphere-viewer/core": "^5.14.1",
